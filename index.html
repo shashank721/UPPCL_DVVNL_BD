@@ -3,6 +3,156 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UPPCL Bill Demand</title>
+    <!-- Google Font for better typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #333, #000);
+            color: #fff;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: background-color 0.5s, color 0.5s;
+        }
+        .container {
+            text-align: center;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            max-width: 400px;
+        }
+        .title {
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+        .search-bar {
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            border-radius: 30px;
+            border: none;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.3s ease;
+        }
+        .search-bar:focus {
+            outline: none;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+        .go-button {
+            padding: 12px 30px;
+            background-color: #555;
+            color: white;
+            border: none;
+            border-radius: 30px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .go-button:hover {
+            background-color: #444;
+            transform: translateY(-3px);
+        }
+        .alert {
+            color: #ff9999;
+            margin-top: 20px;
+            font-size: 16px;
+        }
+        .toggle-button {
+            padding: 12px 30px;
+            background-color: #222;
+            color: white;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            margin-top: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .toggle-button:hover {
+            background-color: #333;
+            transform: translateY(-3px);
+        }
+        .top-right-link {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            font-size: 24px;
+        }
+        .top-right-link a {
+            color: white;
+            transition: color 0.3s ease, transform 0.2s ease;
+        }
+        .top-right-link a:hover {
+            color: #FFC107;
+            transform: scale(1.1);
+        }
+        .dark-mode {
+            background: linear-gradient(135deg, #111, #333);
+            color: white;
+        }
+        .dark-mode .go-button {
+            background-color: #555;
+        }
+        @media screen and (max-width: 600px) {
+            .container {
+                max-width: 90%;
+            }
+            .go-button, .toggle-button {
+                width: 100%;
+                margin-top: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="top-right-link">
+        <a href="https://shashankojha.pages.dev/" target="_blank"><i class="fas fa-globe"></i></a>
+    </div>
+    <div class="container">
+        <div class="title">UPPCL Bill Demand Check <br>(By SHASHANK OJHA)</div>
+        <input type="text" id="searchBar" class="search-bar" placeholder="Enter Account Number...">
+        <button class="go-button" onclick="goToLink()">Go</button>
+        <div class="alert"><b>Alert -</b> This website is only for UPPCL (DVVNL) officials. Unofficial use can be punishable.</div>
+        <button class="toggle-button" onclick="toggleDarkMode()">Toggle Dark Mode</button>
+    </div>
+
+    <script>
+        function goToLink() {
+            var accountNumber = document.getElementById('searchBar').value;
+            if (accountNumber) {
+                var baseUrl = "https://www.uppclonline.com/dispatch/Portal/BD?accNo=";
+                var fullUrl = baseUrl + accountNumber + "&dis=DVVNL";
+                window.location.href = fullUrl;
+            } else {
+                alert("Please enter a valid account number.");
+            }
+        }
+
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+        }
+    </script>
+</body>
+</html>
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UPPCL_BD</title>
     <style>
         body {
@@ -75,3 +225,4 @@
     </script>
 </body>
 </html>
+ -->
